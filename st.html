@@ -1,0 +1,102 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+function login_Cred()
+{
+var t=document.getElementById("appen");
+var user=document.getElementById("name").value;
+var cont=document.getElementById("contact").value;
+var mail=document.getElementById("email").value;
+
+if(user==""||cont==""||mail=="")
+{
+alert("Field is Empty!!");
+}
+else
+{
+var newI=document.createElement("tr");
+
+
+var list=document.createElement("td");
+var tex=document.createTextNode(user);
+list.appendChild(tex);
+newI.appendChild(list);
+
+
+var lis=document.createElement("td");
+var text=document.createTextNode(cont);
+lis.appendChild(text);
+newI.appendChild(lis);
+
+
+var lii=document.createElement("td");
+var te=document.createTextNode(mail);
+lii.appendChild(te);
+newI.appendChild(lii);
+
+var bt=document.createElement("td");
+var btnText=document.createElement("Button");
+var butn=document.createTextNode("Delete");
+btnText.appendChild(butn);
+btnText.setAttribute("onclick","deleteRow()");
+bt.appendChild(btnText);
+newI.appendChild(bt);
+
+t.appendChild(newI);
+}
+}
+function deleteRow()
+{
+var i=event.target.parentNode;
+var y=i.parentNode;
+y.parentNode.removeChild(y);
+}
+</script>
+
+
+<div id="form">
+<h2><center>Details form</center></h2>
+
+<hr>
+<div>
+<ul type="none">
+<li>
+ <label for="name">Name:</label>
+ <input type="text" id="name" minlength="3">
+</li>
+<br>
+<li>
+ <label for="email">E-mail:</label>
+ <input type="email" id="email">
+</li><br>
+<li>
+ <label for="contact">Contact:</label>
+ <input type="text" id="contact" minlength="10">
+</li><br>
+<li>
+ <input type="submit" value="Submit" onclick="login_Cred()"></li>
+</ul>
+</div>
+<hr>
+
+<div>
+ <table id="appen">
+   <tr>
+     <td>
+       <input type="text" placeholder="Enter the name here" id="searc"></td>
+     <td><button value="Search">Search</button></td>
+    </tr>
+  <tr>
+       <td>Name:</td>
+        <td>Mob No:</td>
+        <td>Email:</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+</body>
+</html>
